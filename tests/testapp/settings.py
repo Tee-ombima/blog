@@ -11,10 +11,10 @@ load_dotenv()
 WAGTAIL_SITE_NAME = "Puput blog"
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", get_random_secret_key())
-DEBUG = True
-
+DEBUG = False
+ALLOWED_HOSTS=['*']
 DATABASE_URL = os.getenv("DATABASE_URL")
-ALLOWED_HOSTS =['127.0.0.1','wfspotlight.herokuapp.com','localhost','www.spotlightkenya.club','spotlightkenya.club']
+# ALLOWED_HOSTS =['127.0.0.1','wfspotlight.herokuapp.com','localhost','www.spotlightkenya.club','spotlightkenya.club']
 #default_csrf_trusted_origins = "http://127.0.0.1,https://127.0.0.1,http://localhost,https://localhost,https://SpotlightKenya.ngrok.io"
 CSRF_TRUSTED_ORIGINS=['http://127.0.0.1','https://www.spotlightkenya.club/','https://spotlightkenya.club/']
 INSTALLED_APPS = (
