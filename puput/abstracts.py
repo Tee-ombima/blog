@@ -3,8 +3,8 @@ import datetime
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel, InlinePanel, PageChooserPanel
-from wagtail.core.fields import RichTextField
+from wagtail.admin.panels import FieldPanel, MultiFieldPanel, InlinePanel, PageChooserPanel
+from wagtail.fields import RichTextField
 from modelcluster.contrib.taggit import ClusterTaggableManager
 
 from colorful.fields import RGBColorField

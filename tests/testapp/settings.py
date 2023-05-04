@@ -7,9 +7,11 @@ import dj_database_url
 
 
 load_dotenv()
+SESSION_COOKIE_SAMESITE = 'Lax'
 
 WAGTAIL_SITE_NAME = "Puput blog"
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", get_random_secret_key())
 DEBUG = False
 ALLOWED_HOSTS=['*']
@@ -24,6 +26,7 @@ INSTALLED_APPS = (
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "storages",
+    
 )
 INSTALLED_APPS += PUPUT_APPS
 
@@ -62,13 +65,14 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': os.getenv('DB_NAME'),
-        'HOST': os.getenv('DB_HOST'),
+        'HOST': 'localhost',
         'USER': os.getenv('DB_USER'),
         'PASSWORD': os.getenv('DB_PASSWORD'),
-        'PORT': '5432'
+        
     }
 }
-DATABASES['default'] = dj_database_url.config(conn_max_age=10000, ssl_require=True)
+
+#DATABASES['default'] = dj_database_url.config(conn_max_age=10000, ssl_require=True)
 
 
 
@@ -81,6 +85,9 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
+from .cdn.conf import *  #noqa
+
+
 STATIC_ROOT = "/tmp/static"
 #STATIC_URL = "/static/"
 MEDIA_ROOT = "/tmp/media"
@@ -92,15 +99,8 @@ STATICFILES_FINDERS = [
 ]
 
 
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-AWS_LOCATION = 'media'
-STATIC_URL = f'https://spotlightkenya.sgp1.digitaloceanspaces.com/static/'
-MEDIA_URL = f'https://spotlightkenya.sgp1.digitaloceanspaces.com/media/'
 
 
-AWS_S3_ENDPOINT_URL = 'https://spotlightkenya.sgp1.digitaloceanspaces.com'  # Replace your-region with the region where your bucket is located
-AWS_S3_SIGNATURE_VERSION = 's3v4'
-AWS_ACCESS_KEY_ID="DO00WBEEMAQWJ4FZCGLX"
-AWS_SECRET_ACCESS_KEY="hx0HQ6vEKqP2eW/AICZcWBCg5JfSQBSPEj8tc+f5ERI"
-AWS_STORAGE_BUCKET_NAME='spotlightkenya'
+
+
+
