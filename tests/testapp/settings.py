@@ -14,11 +14,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", get_random_secret_key())
 DEBUG = False
-ALLOWED_HOSTS=['*']
-DATABASE_URL = os.getenv("DATABASE_URL")
-# ALLOWED_HOSTS =['127.0.0.1','wfspotlight.herokuapp.com','localhost','www.spotlightkenya.club','spotlightkenya.club']
+#ALLOWED_HOSTS=['*']
+#DATABASE_URL = os.getenv("DATABASE_URL")
+ALLOWED_HOSTS =['127.0.0.1','clownfish-app-jzu8k.ondigitalocean.app','localhost','www.spotlightkenya.club','spotlightkenya.club']
 #default_csrf_trusted_origins = "http://127.0.0.1,https://127.0.0.1,http://localhost,https://localhost,https://SpotlightKenya.ngrok.io"
-CSRF_TRUSTED_ORIGINS=['https://b44d-197-248-108-89.ngrok-free.app','http://127.0.0.1','https://www.spotlightkenya.club/','https://spotlightkenya.club/']
+CSRF_TRUSTED_ORIGINS=['https://clownfish-app-jzu8k.ondigitalocean.app','http://127.0.0.1','https://www.spotlightkenya.club/','https://spotlightkenya.club/']
 INSTALLED_APPS = (
     "django.contrib.auth",
     "django.contrib.contenttypes",
