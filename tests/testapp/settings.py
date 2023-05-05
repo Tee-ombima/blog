@@ -70,7 +70,7 @@ DATABASES = {
         'PASSWORD': os.getenv('DB_PASSWORD'),
     }
 }
-
+  
 
 
 # Overwrite the 'default' database settings with the database URL specified
