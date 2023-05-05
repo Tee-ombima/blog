@@ -69,10 +69,11 @@ DATABASES = {
         'USER': os.getenv('DB_USER'),
         'PASSWORD': os.getenv('DB_PASSWORD'),
         
+        
     }
 }
 
-#DATABASES['default'] = dj_database_url.config(conn_max_age=10000, ssl_require=True)
+DATABASES['default'] = dj_database_url.config(conn_max_age=10000, ssl_require=True)
 
 
 
