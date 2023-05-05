@@ -7,7 +7,7 @@ import dj_database_url
 
 
 load_dotenv()
-SESSION_COOKIE_SAMESITE = 'Lax'
+
 
 WAGTAIL_SITE_NAME = "Puput blog"
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -72,7 +72,7 @@ DATABASES = {
 }
   
 
-DATABASES['default'] = dj_database_url.config(conn_max_age=10000, ssl_require=True)
+#DATABASES['default'] = dj_database_url.config(conn_max_age=10000, ssl_require=True)
 
 # Overwrite the 'default' database settings with the database URL specified
 # in the environment variable DATABASE_URL (if it exists).
