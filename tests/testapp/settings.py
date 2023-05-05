@@ -15,7 +15,7 @@ PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", get_random_secret_key())
 DEBUG = True
 #ALLOWED_HOSTS=['*']
-#DATABASE_URL = os.getenv("DATABASE_URL")
+DATABASE_URL = os.getenv("DATABASE_URL")
 ALLOWED_HOSTS =['*','127.0.0.1','clownfish-app-jzu8k.ondigitalocean.app','localhost','www.spotlightkenya.club','spotlightkenya.club']
 #default_csrf_trusted_origins = "http://127.0.0.1,https://127.0.0.1,http://localhost,https://localhost,https://SpotlightKenya.ngrok.io"
 CSRF_TRUSTED_ORIGINS=['https://clownfish-app-jzu8k.ondigitalocean.app','http://127.0.0.1','https://www.spotlightkenya.club/','https://spotlightkenya.club/']
@@ -65,7 +65,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': os.getenv('DB_NAME'),
-        'HOST': '127.0.0.1',
+        'HOST': os.getenv('DB_HOST').split(","),
         'USER': os.getenv('DB_USER'),
         'PASSWORD': os.getenv('DB_PASSWORD'),
     }
