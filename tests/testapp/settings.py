@@ -68,13 +68,14 @@ DATABASES = {
         'HOST': 'localhost',
         'USER': os.getenv('DB_USER'),
         'PASSWORD': os.getenv('DB_PASSWORD'),
-        
-        
     }
 }
 
-DATABASES['default'] = dj_database_url.config(conn_max_age=10000, ssl_require=True)
-
+# Overwrite the 'default' database settings with the database URL specified
+# in the environment variable DATABASE_URL (if it exists).
+db_from_env = dj_database_url.config(conn_max_age=10000, ssl_require=True)
+if db_from_env:
+    DATABASES['default'].update(db_from_env)
 
 
 WAGTAILADMIN_BASE_URL = '/blog_admin'
