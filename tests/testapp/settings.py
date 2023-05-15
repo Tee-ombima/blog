@@ -27,6 +27,8 @@ INSTALLED_APPS = (
     "django.contrib.staticfiles",
     "storages",
     "wf_pages",
+    "navigation",
+    "wagtail.contrib.settings",
     
 )
 INSTALLED_APPS += PUPUT_APPS
