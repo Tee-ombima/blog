@@ -11,8 +11,6 @@ from wagtail.images.blocks import ImageChooserBlock
 
 class WfPageCollectionIndexPage(Page):
     intro = RichTextField(blank=True)
-    parent_page_types = ["wf_pages.WfPageCollectionIndexPage","puput.BlogPage"]
-
 
     content_panels = Page.content_panels + [FieldPanel("intro")]
 
@@ -31,15 +29,13 @@ class WfPageCollectionIndexPage(Page):
 class WfPageCollection(Page):
     panels = [FieldPanel("title")]
 
-    parent_page_types = ["wf_pages.WfPageCollectionIndexPage","puput.BlogPage"]
+    parent_page_types = ["wf_pages.WfPageCollectionIndexPage"]
     subpage_types = []
 
     context_object_name = "collection"
 
 
 class WfPage(Page):
-    parent_page_types = ["wf_pages.WfPageCollectionIndexPage","puput.BlogPage"]
-
     body = StreamField(
         [
             
