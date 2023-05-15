@@ -141,7 +141,7 @@ class EntryPage(Entry, Page):
 
     # Parent and child settings
     parent_page_types = ["puput.BlogPage"]
-    subpage_types = []
+    subpage_types = ["wf_pages.WfPage"]
 
     def get_sitemap_urls(self, request=None):
         from .urls import get_entry_url
